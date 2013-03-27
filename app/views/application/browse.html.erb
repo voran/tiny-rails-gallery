@@ -17,8 +17,10 @@
 <div class="row">
 <% @output[:subdirs].each do |subdir| %>
   <div class="span4">
-    <img src="http://cdn.stoychev.info/icons/index/dir.png" width="150" height="150" alt="folder icon"/>
-    <a href="<%=u subdir %>/"><%= subdir %></a>
+    <a href="<%=u subdir %>/"
+      <img src="http://cdn.stoychev.info/icons/index/dir.png" width="150" height="150" alt="folder icon"/>
+      <p class="text-center"><%= subdir %></p>
+    </a>
   </div>
 <% end %>
 
@@ -29,4 +31,3 @@
     </a>
   </div>
 <% end %>
-<>
