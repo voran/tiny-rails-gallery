@@ -10,7 +10,7 @@
          end
        end
      %>
-     / <a href="/browse.html/<%= updir_urlencoded + @entry_urlencoded[n] %>/"><%= @entry[n] %></a>
+     / <a href="/browse.html/<%= updir_urlencoded + @entry_urlencoded.split('/')[n] %>/"><%= @entry.split('/')[n] %></a>
    <% end %>
 </div>
 
@@ -24,8 +24,9 @@
 
 <% @output[:files].each do |file| %>
   <div class="span4">
-    <img src="/view/x150/<%= @entry_urlencoded + file %>" width="150" height="150" alt="<%= file %>" />
-    <a href="<%=u file %>"><%= file %>
+    <a href="<%=u file %>">
+      <img src="/view/x150/<%= @entry_urlencoded + file %>" width="150" height="150" alt="<%= file %>" />
+    </a>
   </div>
 <% end %>
 <>
