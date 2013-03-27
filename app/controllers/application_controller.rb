@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
     
 
-    if !entry.nil?
+    if !@entry.nil?
       @entry.split('/').each do | url_chuck |
         @entry_urlencoded  =  @entry_urlencoded  + u(url_chunk) + '/'
        end
