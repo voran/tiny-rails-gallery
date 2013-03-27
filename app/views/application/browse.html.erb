@@ -1,16 +1,17 @@
 <div class="hero-unit">           
    <a href="/browse.html/">root</a>
-   <% @entry.split('/').each do | path_chunk | %>
+   <% 0.upto(@entry.split('/').length - 1) do | n | %>
      <% 
        updir_urlencoded = ""
-       updir = @entry.split(path_chunk)[0]
+       updir = @entry_urlencoded.split(@entry_urlencoded[n])[0]
        if !updir.nil?
          updir.split('/').each do | updir_chunk |
-           updir_urlencoded  =  updir_urlencoded  + u(updir_chunk) + '/'
+           updir_urlencoded  =  updir_urlencoded  + updir_chunk + '/'
          end
        end
      %>
-     / <a href="/browse.html/<%= updir_urlencoded + u(path_chunk) %>/"><%= path_chunk %></a>
+     / <a href="/browse.html/<%= updir_urlencoded + @entry_urlencoded[n] %>/"><%= @entry[n] %></a>
+     @path = updir_urlencoded + u(path_chunk)
    <% end %>
 </div>
 
@@ -18,13 +19,14 @@
 <% @output[:subdirs].each do |subdir| %>
   <div class="span4">
     <img src="http://cdn.stoychev.info/icons/index/dir.png" width="150" height="150" alt="folder icon"/>
-    <p><a href="<%=u subdir %>/"><%= subdir %></a></p>
+    <a href="<%=u subdir %>/"><%= subdir %></a>
   </div>
 <% end %>
 
 <% @output[:files].each do |file| %>
   <div class="span4">
-    <img src="http://cdn.stoychev.info/icons/index/<%= file.split('.')[-1].downcase %>.png" width="150" height="150" alt="<%= file.split('.')[-1].downcase %>" />
+    <img src="/view/x150/<%= @entry_urlencoded + file %>" width="150" height="150" alt="<%= file %>" />
+    <a href="<%=u file %>"><%= file %>
   </div>
 <% end %>
-</div>
+<>

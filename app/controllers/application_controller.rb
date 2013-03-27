@@ -6,11 +6,7 @@ class ApplicationController < ActionController::Base
     subdirs = Array.new
     
     @entry = params[:dir]
-    @photos_root = "/data/Photos"
-    @thumbs_root = "/data/Thumbs/x150/Photos"
-    @views_root = "/data/Thumbs/x800/Photos"
-    @fulscreen_root = "/data/Thumbs/x1080/Photos"
-    
+    @photos_root = "/data/Photos"    
 
     if  @entry.nil? or (!File.directory?(@photos_root + '/' + @entry) and !File.file?(@photos_root + '/' + @entry))
       @entry = ""    
@@ -27,6 +23,13 @@ class ApplicationController < ActionController::Base
         files.push(subentry)
       end
     end
+    
+
+    if !entry.nil?
+      @entry.split('/').each do | url_chuck |
+        @entry_urlencoded  =  @entry_urlencoded  + u(url_chunk) + '/'
+       end
+     end
     
     @output = { :subdirs => subdirs.sort, :files => files.sort }
     
