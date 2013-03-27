@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       subentry_fullpath = @photos_root + '/' + @entry + '/' + subentry
       if File.directory?(subentry_fullpath) and subentry != '.' and (subentry != '..' or !params[:dir].nil?)
         subdirs.push(subentry)
-      elsif File.file?(subentry_fullpath) # and ["jpg", "jpeg", "png", "gif", "bmp"].include? subentry.fullpath.split('.')[-1].lower
+      elsif File.file?(subentry_fullpath) and ["jpg", "jpeg", "png", "gif", "bmp"].include? subentry.split('.')[-1].lower
         files.push(subentry)
       end
     end
