@@ -16,7 +16,7 @@
 
 <div class="row">
 <% @output[:subdirs].each do |subdir| %>
-  <div class="span4 text-center">
+  <div class="span3 text-center">
     <a href="<%=u subdir %>/">
       <img src="http://cdn.stoychev.info/icons/index/dir.png" width="150" height="150" alt="folder icon"/>
       <p><%= subdir %></p>
@@ -25,7 +25,7 @@
 <% end %>
 
 <% @output[:files].each do |file| %>
-  <div class="span4 text-center">
+  <div class="span3 text-center">
     <a href="<%=u file %>">
       <img src="/view/x150/<%= @entry_urlencoded + file %>" width="150" height="150" alt="<%= file %>" />
     </a>
