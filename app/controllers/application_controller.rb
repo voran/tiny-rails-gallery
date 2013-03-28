@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     files = Array.new
     subdirs = Array.new
     
-    @entry = params[:dir].nil? "" : params[:dir]
+    @entry = (params[:dir].nil? "" : params[:dir])
     @entry_urlencoded = urlencode(@entry)
     @photos_root = "/data/Photos"    
 
