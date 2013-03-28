@@ -11,9 +11,10 @@ module ApplicationHelper
    end
    
    def random_cover(dir)
-     files = Dir.glob("/data/Thumbs" + dir + "**/*.jpg", File::FNM_CASEFOLD)
+     base_path = "/data/Thumbs"
+     files = Dir.glob(base_path + dir + "**/*.jpg", File::FNM_CASEFOLD)
      random_image = files.sample
-     return (if random_image.nil? then "nil" else random_image end)
+     return (if random_image.nil? then "nil" else Pathname.new(random_image).relative_path_from(Pathname.new(base_path)) end)
    end
    
 end
