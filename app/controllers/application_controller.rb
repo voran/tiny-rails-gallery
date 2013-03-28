@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ApplicationHelper
   protect_from_forgery
   
   def browse
@@ -6,14 +7,9 @@ class ApplicationController < ActionController::Base
     subdirs = Array.new
     
     @entry = params[:dir]
+    @entry_urlencoded = urlencode(@entry)
     @photos_root = "/data/Photos"    
 
-    if  @entry.nil? or (!File.directory?(@photos_root + '/' + @entry) and !File.file?(@photos_root + '/' + @entry))
-      @entry = ""    
-    elsif File.file?(@photos_root + '/' + @entry)
-      send_file @photos_root + '/' + @entry
-      return
-    end
     
     Dir.foreach(@photos_root + '/' + @entry) do |subentry|
       subentry_fullpath = @photos_root + '/' + @entry + '/' + subentry
@@ -23,14 +19,6 @@ class ApplicationController < ActionController::Base
         files.push(subentry)
       end
     end
-    
-
-    if !@entry.nil?
-      @entry_urlencoded = ""
-      @entry.split('/').each do | url_chunk |
-        @entry_urlencoded  =  @entry_urlencoded  + URI::encode(url_chunk) + '/'
-       end
-     end
     
     @output = { :subdirs => subdirs.sort.reverse, :files => files.sort }
     
