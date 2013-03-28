@@ -1,4 +1,5 @@
 module ApplicationHelper
+  
   def urlencode(entry)
     if !entry.nil?
       entry_urlencoded = ""
@@ -8,4 +9,5 @@ module ApplicationHelper
      end
      return entry_urlencoded
    end
+   
 end

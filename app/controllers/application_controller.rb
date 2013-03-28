@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
     
     @entry =  (if params[:dir].nil?  then "" else params[:dir] end)
     @entry_urlencoded = urlencode(@entry)
-    @photos_root = "/data/Photos"    
+    @photos_root = "/data/Photos"
+    @thumbs_small_root = "/x150/Photos/"
 
     
     Dir.foreach(@photos_root + '/' + @entry) do |subentry|
