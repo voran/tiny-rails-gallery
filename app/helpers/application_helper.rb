@@ -12,7 +12,8 @@ module ApplicationHelper
    
    def random_cover(dir)
      files = Dir.glob(dir + "**/*.jpg", File::FNM_CASEFOLD)
-     return files.sample
+     random_image = files.sample
+     return (if random_image.nil? then "nil" else random_image end)
    end
    
 end
