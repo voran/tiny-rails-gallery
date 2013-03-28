@@ -7,7 +7,7 @@
 
 <div class="row">
 <% @output[:subdirs].each do |subdir| %>
-  <% subdir_path = u(@thumbs_small_root) + @entry_urlencoded + u(subdir) + '/' %>
+  <% subdir_path = @thumbs_small_root + @entry_urlencoded + u(subdir) + '/' %>
   <div class="span3 text-center padded">
     <a href="<%=u subdir %>/">
       <img src="<%= subdir_path %>" alt="folder icon"/>
@@ -21,7 +21,7 @@
 <% @output[:files].each do |file| %>
   <div class="span2 text-center padded">
     <a href="<%=u file %>">
-      <img src="<%= u(@thumbs_small_root) + @entry_urlencoded + u(file) %>" alt="<%= file %>" />
+      <img src="<%= @thumbs_small_root + @entry_urlencoded + u(file) %>" alt="<%= file %>" />
     </a>
   </div>
 <% end %>
