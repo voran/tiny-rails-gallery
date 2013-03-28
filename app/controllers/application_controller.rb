@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
        end
      end
     
-    @output = { :subdirs => subdirs.sort reverse, :files => files.sort }
+    @output = { :subdirs => subdirs.sort.reverse, :files => files.sort }
     
     respond_to do |format|
       format.html { render }
