@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     files = Array.new
     subdirs = Array.new
     
-    @entry = params[:dir]
+    @entry = params[:dir].nil? "" : oarams[:dir]
     @entry_urlencoded = urlencode(@entry)
     @photos_root = "/data/Photos"    
 
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
         files.push(subentry)
       end
     end
-    
+
     @output = { :subdirs => subdirs.sort.reverse, :files => files.sort }
     
     respond_to do |format|
