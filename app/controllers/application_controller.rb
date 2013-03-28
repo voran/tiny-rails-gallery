@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     
     Dir.foreach(@photos_root + '/' + @entry) do |subentry|
       subentry_fullpath = @photos_root + '/' + @entry + '/' + subentry
-      if File.directory?(subentry_fullpath) and subentry != '.' and (subentry != '..' or !params[:dir].nil?)
+      if File.directory?(subentry_fullpath) and subentry != '.' and subentry != '..'
         subdirs.push(subentry)
       elsif File.file?(subentry_fullpath) and ["jpg", "jpeg", "png", "gif", "bmp"].include? subentry.split('.')[-1].downcase
         files.push(subentry)
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
        end
      end
     
-    @output = { :subdirs => subdirs.sort, :files => files.sort }
+    @output = { :subdirs => subdirs.sort reverse, :files => files.sort }
     
     respond_to do |format|
       format.html { render }
