@@ -8,7 +8,7 @@
 <div class="row">
 <% @output[:subdirs].each do |subdir| %>
   <% subdir_path = @thumbs_small_root + @entry_urlencoded + u(subdir) + '/' %>
-  <div class="span3 text-center padded">
+  <div class="span2 text-center padded">
     <div class="folder-container">
         <img class="folder" src="/<%= random_cover(subdir_path) %>" alt="folder icon"/>
     </div>
