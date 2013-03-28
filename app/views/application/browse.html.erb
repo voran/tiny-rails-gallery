@@ -17,12 +17,10 @@
 <% end %>
 </div>
 
-<div class="row">
+<div class="row" id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.gallery-item">
 <% @output[:files].each do |file| %>
-  <div class="span2 text-center padded">
-    <a href="<%=u file %>">
-      <img src="<%= @thumbs_small_root + @entry_urlencoded + u(file) %>" alt="<%= file %>" />
-    </a>
+  <div class="span2 text-center padded gallery-item" data-href="/Photos/<%= @entry_urlencoded + u(file) %>">
+    <img src="<%= @thumbs_small_root + @entry_urlencoded + u(file) %>" alt="<%= file %>" />
   </div>
 <% end %>
 </div>
