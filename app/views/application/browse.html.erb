@@ -1,4 +1,4 @@
-<div class="hero-unit">           
+<div class="row">           
    <a href="/browse.html/">root</a>
    <% 0.upto(@entry.split('/').length - 1) do | n | %>
      / <a href="/browse.html/<%= @entry_urlencoded.split('/')[0..n].join('/') %>/"><%= @entry.split('/')[n] %></a>
