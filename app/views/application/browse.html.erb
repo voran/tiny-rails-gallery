@@ -9,10 +9,8 @@
 <% @output[:subdirs].each do |subdir| %>
   <% subdir_path = @thumbs_small_root + @entry_urlencoded + u(subdir) + '/' %>
   <div class="span3 text-center padded folder">
-    <a class="padded" href="<%=u subdir %>/">
-      <img src="/<%= random_cover(subdir_path) %>" alt="folder icon"/>
-      <p><%= subdir %></p>
-    </a>
+    <img src="/<%= random_cover(subdir_path) %>" alt="folder icon"/>
+    <a  href="<%=u subdir %>/"><%= subdir %></a>
   </div>
 <% end %>
 </div>
