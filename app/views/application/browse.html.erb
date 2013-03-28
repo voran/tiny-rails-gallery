@@ -1,16 +1,7 @@
 <div class="hero-unit">           
    <a href="/browse.html/">root</a>
    <% 0.upto(@entry.split('/').length - 1) do | n | %>
-     <% 
-       updir_urlencoded = ""
-       updir = @entry_urlencoded.split(@entry_urlencoded.split('/')[n])[0]
-       if !updir.nil?
-         updir.split('/').each do | updir_chunk |
-           updir_urlencoded  =  updir_urlencoded  + updir_chunk + '/'
-         end
-       end
-     %>
-     / <a href="/browse.html/<%= updir_urlencoded + @entry_urlencoded.split('/')[n] %>/"><%= @entry.split('/')[n] %></a>
+     / <a href="/browse.html/<%= @entry_urlencoded.split('/')[0..n].join('/') %>/"><%= @entry.split('/')[n] %></a>
    <% end %>
 </div>
 
