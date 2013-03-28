@@ -29,7 +29,7 @@
 <% @output[:files].each do |file| %>
   <div class="span2 text-center padded">
     <a href="<%=u file %>">
-      <img src="<%= @thumbs_small_root + @entry_urlencoded + file %>" width="150" height="150" alt="<%= file %>" />
+      <img src="<%= @thumbs_small_root + @entry_urlencoded + file %>" alt="<%= file %>" />
     </a>
   </div>
 <% end %>
