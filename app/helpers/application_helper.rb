@@ -10,4 +10,9 @@ module ApplicationHelper
      return entry_urlencoded
    end
    
+   def random_cover(dir)
+     files = Dir.glob(dir + "**/*.jpg", File::FNM_CASEFOLD)
+     return files.sample
+   end
+   
 end

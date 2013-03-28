@@ -7,9 +7,10 @@
 
 <div class="row">
 <% @output[:subdirs].each do |subdir| %>
+  subdir_path = u(@thumbs_small_root) + @entry_urlencoded + u(subdir) + '/'
   <div class="span3 text-center padded">
     <a href="<%=u subdir %>/">
-      <img src="http://cdn.stoychev.info/icons/index/dir.png" width="150" height="150" alt="folder icon"/>
+      <img src="<%= subdir_path + random_cover(subdir_path) %>" alt="folder icon"/>
       <p><%= subdir %></p>
     </a>
   </div>
@@ -20,7 +21,7 @@
 <% @output[:files].each do |file| %>
   <div class="span2 text-center padded">
     <a href="<%=u file %>">
-      <img src="<%= @thumbs_small_root + @entry_urlencoded + file %>" alt="<%= file %>" />
+      <img src="<%= u(@thumbs_small_root) + @entry_urlencoded + u(file) %>" alt="<%= file %>" />
     </a>
   </div>
 <% end %>
