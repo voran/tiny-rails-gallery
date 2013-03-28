@@ -8,12 +8,12 @@ class ApplicationController < ActionController::Base
     
     @entry =  (if params[:dir].nil?  then "" else params[:dir] end)
     @entry_urlencoded = urlencode(@entry)
-    @photos_root = "/data/Photos"
+    @photos_root = "/data/Photos/"
     @thumbs_small_root = "/x150/Photos/"
 
     
-    Dir.foreach(@photos_root + '/' + @entry) do |subentry|
-      subentry_fullpath = @photos_root + '/' + @entry + '/' + subentry
+    Dir.foreach(@photos_root +  @entry) do |subentry|
+      subentry_fullpath = @photos_root + @entry + '/' + subentry
       if File.directory?(subentry_fullpath) and subentry != '.' and subentry != '..'
         subdirs.push(subentry)
       elsif File.file?(subentry_fullpath) and ["jpg", "jpeg", "png", "gif", "bmp"].include? subentry.split('.')[-1].downcase
