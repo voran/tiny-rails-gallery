@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     
     @entry =  (if params[:dir].nil?  then "" else params[:dir] end)
     @entry_urlencoded = urlencode(@entry)
-    @photos_root = "/data/Thumbs/x1080/Photos"
+    @photos_root = "/data/Thumbs/x1080/Photos/"
     @thumbs_baseurl = "/thumbnails/"
     @photos_baseurl = "/photos/"
 
