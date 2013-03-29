@@ -10,11 +10,11 @@ module ApplicationHelper
      return entry_urlencoded
    end
    
-   def random_cover(dir)
-     base_path = "/data/Thumbs"
-     files = Dir.glob(base_path + dir + "**/*.jpg", File::FNM_CASEFOLD)
+   def random_cover(base_path, dir)
+     files = Dir.glob(base_path + dir + "/**/*.jpg", File::FNM_CASEFOLD)
      random_image = files.sample
-     return (if random_image.nil? then "nil" else Pathname.new(random_image).relative_path_from(Pathname.new(base_path)) end)
+     return (if random_image.nil? then base_path + dir + "/**/*.jpg" else Pathname.new(random_image).relative_path_from(Pathname.new(base_path)).to_s end)
+     # return  base_path + dir + "**/*.jpg"
    end
    
 end
