@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+# Example usage
+# ./cleanthumbs thumbs Thumbs x800
+
+
+# Thumbnail Sizes that Rails Gallery expects
+# x150
+# x800
+# x1080
+
+printf "Scanning thumbs in folder $2/$3 \n"
+thumbs=$(find "$2/$3" -iname '*.JPG')
+item_count=$(echo "$thumbs" | wc -l)
+printf "Found $item_count items \n"
+current_item_count=1
+processed_item_count=0
+
+for thumb in $thumbs
+do
+    photo=${thumb#*/*/}
+    if [ ! -f $photo ]; then
+        printf "$current_item_count/$item_count : Photo does not exist: deleting thumb $thumb \n"
+        processed_item_count=$[processed_item_count+1]
+    else
+        printf "$current_item_count/$item_count :Skipping thumb for $photo : photo exists \n"
+    fi
+    current_item_count=$[current_item_count+1]
+done
+skipped_item_count=$[item_count-processed_item_count]
+printf "Total: $item_count , Deleted: $processed_item_count , Skipped: $skipped_item_count \n"

@@ -1,6 +1,11 @@
 #!/bin/bash
 
-# Thumbnail Sizes
+
+# Example usage
+# ./genthumbs Photos Thumbs x800
+
+
+# Thumbnail Sizes that Rails Gallery expects
 # x150
 # x800
 # x1080
@@ -10,12 +15,20 @@ photos=$(find $1 -iname '*.JPG')
 item_count=$(echo "$photos" | wc -l)
 printf "Found $item_count items \n"
 current_item_count=1
+processed_item_count=0
 
 for photo in $photos
 do
-    printf "$current_item_count/$item_count : Generating $3 thumb for $photo \n"
     photo_dir=$2/$3/$(dirname $photo)
-    mkdir -p $photo_dir
-    mogrify -path $photo_dir -thumbnail $3 $photo
-    current_item_count=$[current_item_count + 1]
+    if [ ! -f $2/$3/$photo ]; then
+        printf "$current_item_count/$item_count : Generating $3 thumb for $photo \n"
+        mkdir -p $photo_dir
+        mogrify -path $photo_dir -thumbnail $3 $photo
+        processed_item_count=$[processed_item_count+1]
+    else
+        printf "$current_item_count/$item_count :Skipping thumb for $photo : already exists \n"
+    fi
+    current_item_count=$[current_item_count+1]
 done
+skipped_item_count=$[item_count-processed_item_count]
+printf "Total: $item_count , Generated: $processed_item_count , Skipped: $skipped_item_count \n"
