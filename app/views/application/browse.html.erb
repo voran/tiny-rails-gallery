@@ -11,7 +11,7 @@
     <div class="folder-container">
         <img class="folder" src="<%= @photos_baseurl + random_cover(@photos_root, @entry + '/' + subdir).to_s %>" alt="folder icon"/>
     </div>
-    <a class="break-word" href="<%=u subdir %>/"><%= subdir %></a>
+    <a class="break-word" href="<%=u subdir %>/"><%= subdir.gsub!('_',' ') %></a>
   </div>
 <% end %>
 </div>
