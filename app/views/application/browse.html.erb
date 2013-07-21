@@ -1,11 +1,11 @@
-<div class="row">           
+<div class="row-fluid">           
    <a href="/browse.html/">Home</a>
    <% 0.upto(@entry.split('/').length - 1) do | n | %>
      / <a href="/browse.html/<%= @entry_urlencoded.split('/')[0..n].join('/') %>/"><%= @entry.split('/')[n].gsub!('_',' ') %></a>
    <% end %>
 </div>
 
-<div class="row">
+<div class="row-fluid">
 <% @output[:subdirs].each do |subdir| %>
   <div class="span2 text-center padded">
     <div class="folder-container">
@@ -16,7 +16,7 @@
 <% end %>
 </div>
 
-<div class="row" id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.gallery-item">
+<div class="row-fluid" id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" data-selector="div.gallery-item">
 <% @output[:files].each do |file| %>
   <div class="span2 text-center padded gallery-item" data-href="<%= @photos_baseurl + @entry_urlencoded + u(file) %>">
     <img src="<%= @thumbs_baseurl + @entry_urlencoded + u(file) %>" alt="<%= file %>" />
