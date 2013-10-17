@@ -16,11 +16,6 @@
 break-word {
   word-wrap: break-word;
 }
-
-#main {
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
             
 .padded {
     padding: 15px;
