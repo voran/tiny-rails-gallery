@@ -22,19 +22,9 @@ break-word {
 }
             
 .folder-container {
+    padding: 25% 10% 10% 15%;
     text-align: center;
     background-image: url(/img/folder.svg);
-    background-size: 100%;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-}
-            
-.folder {
-    margin: 20% 10% 10% 10%;
-    height: 100px;
-    max-height: auto;
-    max-width: 80%;
- }
-            
-.gallery-item {
-    cursor: pointer;
 }
