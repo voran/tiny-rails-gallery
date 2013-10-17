@@ -16,3 +16,30 @@
 break-word {
   word-wrap: break-word;
 }
+
+#main {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+            
+.padded {
+    padding: 15px;
+}
+            
+.folder-container {
+    text-align: center;
+    background-image: url(/img/folder.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+            
+.folder {
+    margin: 20% 10% 10% 10%;
+    height: 100px;
+    max-height: auto;
+    max-width: 80%;
+ }
+            
+.gallery-item {
+    cursor: pointer;
+}
