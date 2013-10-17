@@ -1,68 +1,76 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+  <html>
     <head>
-        <title>My Web Gallery</title>
-        <meta http-equiv='content-type' content='text/html;charset=UTF-8'>
-        <%= stylesheet_link_tag "application", :media => "all" %>
-        <%= javascript_include_tag "application" %>
-        <%= csrf_meta_tags %>
-        <%= yield(:head) %>
-        <link href="/css/blueimp-gallery.min.css" rel="stylesheet">
-        <link href="/css/default.css" rel="stylesheet">
-        
+      <title>My Web Gallery</title>
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+      <%= stylesheet_link_tag "application", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tags %>
+      <%= yield(:head) %>
+      <link href="/css/blueimp-gallery.min.css" rel="stylesheet">
+      <link href="/css/default.css" rel="stylesheet">
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="/">My Web Gallery</a>
-                </div>
-            </div>
+        
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/">My Web Gallery</a>
+          </div>
         </div>
+      </nav>
 
-        <div id="main" class="container">
+      <div id="main" class="container">
 
-                <%= yield %>
+        <%= yield %>
 
-            <hr>
-            <footer>
-                <span> Copyright &copy; 2013 <a href="http://yavor.stoychev.bg" target="_blank">Yavor Stoychev</a>. Hosted at home on my <a href="http://yavor.stoychev.bg/x2.html" target="_blank">Odroid X2</a>.</span>
-                <span class="pull-right">
-                    <a href="https://www.facebook.com/stoychev.yavor" target="_blank">
-                        <img src="http://cdn.stoychev.bg/icons/social/fb.png" alt="facebook"/>
-                    </a>
-                    <a href="http://www.linkedin.com/pub/yavor-stoychev/4a/bb1/51a/" target="_blank">
-                        <img src="http://cdn.stoychev.bg/icons/social/li.png" alt="linkedin"/>
-                    </a>
-                    </span>
-            </footer>
+        <hr>
+        <footer>
+          <span> Copyright © 2013 <a href="http://yavor.stoychev.bg" target="_blank">Yavor Stoychev</a>. Hosted at home on my <a href="http://yavor.stoychev.bg/x2.html" target="_blank">Odroid X2</a>.</span>
+          <span class="pull-right">
+            <a href="https://www.facebook.com/stoychev.yavor" target="_blank">
+              <img src="http://cdn.stoychev.bg/icons/social/fb.png" alt="facebook">
+            </a>
+            <a href="http://www.linkedin.com/pub/yavor-stoychev/4a/bb1/51a/" target="_blank">
+              <img src="http://cdn.stoychev.bg/icons/social/li.png" alt="linkedin">
+            </a>
+          </span>
+        </footer>
+      </div>
+
+      <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+      <div id="blueimp-gallery" class="blueimp-gallery">
+      <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">x1080 View</h4>
+              </div>
+              <div class="modal-body next"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left prev">
+                  <i class="glyphicon glyphicon-chevron-left"></i> Previous
+                </button>
+                <button type="button" class="btn btn-primary next">
+                  Next <i class="glyphicon glyphicon-chevron-right"></i>
+                </button>
+              </div>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <div id="modal-gallery" class="modal modal-gallery hide fade modal-fullscreen" tabindex="-1">
-            <div class="modal-header">
-                <a class="close" data-dismiss="modal">&times;</a>
-                <h3 class="modal-title"></h3>
-            </div>
-            <div class="modal-body"><div class="modal-image"></div></div>
-            <div class="modal-footer">
-                <a class="btn modal-download" target="_blank">
-                    <i class="icon-download"></i>
-                    <span>Download</span>
-                </a>
-                <a class="btn btn-success modal-play modal-slideshow" data-slideshow="5000">
-                    <i class="icon-play icon-white"></i>
-                    <span>Slideshow</span>
-                </a>
-                <a class="btn btn-info modal-prev">
-                    <i class="icon-arrow-left icon-white"></i>
-                    <span>Previous</span>
-                </a>
-                <a class="btn btn-primary modal-next">
-                    <span>Next</span>
-                    <i class="icon-arrow-right icon-white"></i>
-                </a>
-            </div>
-        </div>
-        <%= javascript_include_tag "blueimp-gallery.min" %>
-    </body>
+    <%= javascript_include_tag "blueimp-gallery.min" %>
+  </body>
 </html>
