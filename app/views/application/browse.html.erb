@@ -1,16 +1,18 @@
+<% entry_urlencoded = urlencode(@entry) %>
+
 <ul class="breadcrumb">           
    <li><a href="/browse.html/">Home</a></li>
    <% 0.upto(@entry.split('/').length - 1) do | n | %>
-     <li> <span class="divider"></span> <a href="/browse.html/<%= @entry_urlencoded.split('/')[0..n].join('/') %>/"><%= @entry.split('/')[n].gsub('_',' ') %></a></li>
+     <li> <span class="divider"></span> <a href="/browse.html/<%= entry_urlencoded.split('/')[0..n].join('/') %>/"><%= @entry.split('/')[n].gsub('_',' ') %></a></li>
    <% end %>
 </ul>
 
 <div class="row">
 <% @output[:subdirs].each do |subdir| %>
   <div class="col-md-2 text-center padded">
-      <a class="break-word" href="<%=u subdir %>/">
+      <a class="break-word" href="<%= u subdir %>/">
         <p class="folder-container">
-          <img class="img-responsive" src="<%= @photos_baseurl + random_cover(@photos_root, @entry + '/' + subdir).to_s %>" alt="folder icon"/>
+          <img class="img-responsive" src="<%= random_cover(@entry + '/' + subdir) || Config.no_cover_image %>" alt="folder icon"/>
         </p>
         <%= subdir.gsub('_',' ') %>
       </a>
@@ -20,8 +22,8 @@
 
 <div class="row" id="links">
 <% @output[:files].each do |file| %>
-  <a class="col-md-2 text-center padded gallery-item" href="<%= @photos_baseurl + @entry_urlencoded + u(file) %>">
-    <img src="<%= @thumbs_baseurl + @entry_urlencoded + u(file) %>" class="img-responsive" alt="<%= file %>" />
+  <a class="col-md-2 text-center padded gallery-item" href="<%= Rails.configuration.photos_url + entry_urlencoded + u(file) %>">
+    <img src="<%= Rails.configuration.thumbnails_url + entry_urlencoded + u(file) %>" class="img-responsive" alt="<%= file %>" />
   </a>
 <% end %>
 </div>

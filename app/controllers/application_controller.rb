@@ -6,18 +6,14 @@ class ApplicationController < ActionController::Base
     files = Array.new
     subdirs = Array.new
     
-    @entry =  (if params[:dir].nil?  then "" else params[:dir] end)
-    @entry_urlencoded = urlencode(@entry)
-    @photos_root = "/data/Thumbs/x1080/Photos/"
-    @thumbs_baseurl = "/thumbnails/"
-    @photos_baseurl = "/photos/"
-
+    @entry =  params[:dir] || ""
     
-    Dir.foreach(@photos_root +  @entry) do |subentry|
-      subentry_fullpath = @photos_root + @entry + '/' + subentry
-      if File.directory?(subentry_fullpath) and subentry != '.' and subentry != '..'
+    entry_path = Rails.public_path + Rails.configuration.thumbnails_url + @entry
+    Dir.foreach(entry_path) do |subentry|
+      subentry_path = entry_path + '/' + subentry
+      if File.directory?(subentry_path) and !Rails.configuration.ignore_dirs.include? subentry
         subdirs.push(subentry)
-      elsif File.file?(subentry_fullpath) and ["jpg", "jpeg", "png", "gif", "bmp"].include? subentry.split('.')[-1].downcase
+      elsif File.file?(subentry_path) and Rails.configuration.valid_file_types.include? subentry.split('.')[-1].downcase
         files.push(subentry)
       end
     end

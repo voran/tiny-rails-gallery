@@ -64,5 +64,11 @@ module Gallery
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    config.photos_url = "/photos/"
+    config.thumbnails_url = "/thumbnails/"
+    config.ignore_dirs = [".", ".."]
+    config.valid_file_types = ["jpg", "jpeg", "png", "gif", "bmp"]
+    config.no_cover_image = "/img/no-cover-image.jpg"
   end
 end
