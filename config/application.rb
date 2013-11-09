@@ -65,10 +65,23 @@ module Gallery
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
+    
+    # Application Specific Configuration
+    
+    # These folders must exist in public/ and point to photos and thumbnails respectively. Symlinks work as well.
     config.photos_url = "/photos/"
     config.thumbnails_url = "/thumbnails/"
+    
+    # Include/exclude files and folders
     config.ignore_dirs = [".", ".."]
     config.valid_file_types = ["jpg", "jpeg", "png", "gif", "bmp"]
+    
+    # No cover image location (relative to public/ folder)
     config.no_cover_image = "/img/no-cover-image.jpg"
+    
+    # SEO Stuff
+    config.title = "My Web Gallery | Tiny Rails Gallery"
+    config.meta_description = "Powered by Tiny Rails Gallery"
+    config.meta_keywords = "Gallery"
   end
 end
