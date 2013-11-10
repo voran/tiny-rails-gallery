@@ -63,4 +63,6 @@ Gallery::Application.configure do
   
   # Enable Google Analytics
   # GA.tracker = "<your GA Code here>"
+  
+  config.eager_load = true
 end

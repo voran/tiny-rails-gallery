@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   
   def browse
     @entry =  params[:dir] || ""
-    @output = find_entries(Rails.public_path + Rails.configuration.thumbnails_url + @entry)
+    
+    @output = find_entries(Rails.configuration.public_path + Rails.configuration.thumbnails_url + @entry)
     
     respond_to do |format|
       format.html { render }
