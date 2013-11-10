@@ -58,13 +58,6 @@ To enable google analytics for your new gallery, put your Google Analytics code 
     # Enable Google Analytics
     GA.tracker = "<your GA Code here>"
 ```
-## Thumbnail Management
-To generate thumbnails, you can use script/genthumbs
-```sh
-    script/genthumbs <photo dir> <output dir> <thumb size>
-```
-<thumb size> must be a imagemagick compatible size specification, e.g. "x150"
-
 
 ## License
 Released under the [GPL 3 License](http://www.gnu.org/licenses/gpl.txt).
