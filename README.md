@@ -15,8 +15,7 @@
 
 ## Description
 Tiny Rails Gallery aims to be fast and minimalistic. It requires no database to run, but instead craws a pre-configured folder to find photos and thumbnails.
-No database updates. Generating thumbnails is outside the scope of this project.
-To generate scaled-down versions of images for fullscreen display and thumbnails, you are advised to use a fast, third-party tool such as ImageMagick directly from the command line.
+Generating thumbnails is outside the scope of this project. To generate scaled-down versions of images for fullscreen display and thumbnails, you are advised to use a fast, third-party tool such as ImageMagick directly from the command line.
 
 ## Installation
 Clone this repository. Then:
