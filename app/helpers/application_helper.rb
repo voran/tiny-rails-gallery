@@ -11,7 +11,8 @@ module ApplicationHelper
   end
    
    def random_cover(dir)
-     files = Dir.glob(Rails.public_path + Rails.configuration.thumbnails_url + dir + "/**/*.jpg", File::FNM_CASEFOLD)
+     patterns = Rails.configuration.whitelist_file_types.map { |type| Rails.public_path + Rails.configuration.thumbnails_url + dir + "/**/*." + type }
+     files = Dir.glob(patterns, File::FNM_CASEFOLD)
      random_image = files.sample
      return (if random_image.nil? then nil else "/" + Pathname.new(random_image).relative_path_from(Pathname.new(Rails.public_path)).to_s end)
    end

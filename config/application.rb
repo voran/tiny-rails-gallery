@@ -72,9 +72,9 @@ module Gallery
     config.photos_url = "/photos/"
     config.thumbnails_url = "/thumbnails/"
     
-    # Include/exclude files and folders
-    config.ignore_dirs = [".", ".."]
-    config.valid_file_types = ["jpg", "jpeg", "png", "gif", "bmp"]
+    # whitelist/blacklist files and folders
+    config.blacklist_dirs = [".", ".."]
+    config.whitelist_file_types = ["jpg", "jpeg", "png", "gif", "bmp"]
     
     # No cover image location (relative to public/ folder)
     config.no_cover_image = "/img/no-cover-image.jpg"

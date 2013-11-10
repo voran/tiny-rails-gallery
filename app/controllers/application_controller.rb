@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
     subdirs = Array.new
     Dir.foreach(entry_path) do |subentry|
       subentry_path = entry_path + '/' + subentry
-      if File.directory?(subentry_path) and !Rails.configuration.ignore_dirs.include? subentry
+      if File.directory?(subentry_path) and !Rails.configuration.blacklist_dirs.include? subentry
         subdirs.push(subentry)
-      elsif File.file?(subentry_path) and Rails.configuration.valid_file_types.include? subentry.split('.')[-1].downcase
+      elsif File.file?(subentry_path) and Rails.configuration.whitelist_file_types.include? subentry.split('.')[-1].downcase
         files.push(subentry)
       end
     end
