@@ -14,7 +14,7 @@
 
 
 ## Description
-Tiny Rails Gallery aims to be fast and minimallistic. It requires no database to run, but rather craws a pre-configured filder to find photos and thumbnails and displays them.
+Tiny Rails Gallery aims to be fast and minimalistic. It requires no database to run, but instead craws a pre-configured filder to find photos and thumbnails and displays them.
 Thus, one needs to only upload thumbnails to the pre-configured directory for them to become available. No database updates. No slow thumbnail generation through a web application.
 To generate scaled-down versions of images for fullscreen display and thumbnails, you are advised to use a fast, third-party tool such as ImageMagick.
 
