@@ -61,7 +61,6 @@ To enable google analytics for your new gallery, put your Google Analytics code 
 
 ## License
 Released under the [GPL 3 License](http://www.gnu.org/licenses/gpl.txt).
-[blueimp/Gallery](https://github.com/blueimp/Gallery/) JS and CSS found in app/assets released under its original license.
 
 ## Credits
 The JavaScript image preview is based on  [blueimp/Gallery](https://github.com/blueimp/Gallery/) JS library.
