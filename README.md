@@ -14,8 +14,9 @@
 
 
 ## Description
-Tiny Rails Gallery aims to be fast and minimallistic. It requires no database to run, but rather craws a pre-configured filder to find photos and thumbnails and display them.
-
+Tiny Rails Gallery aims to be fast and minimallistic. It requires no database to run, but rather craws a pre-configured filder to find photos and thumbnails and displays them.
+Thus, one needs to only upload thumbnails to the pre-configured directory for them to become available. No database updates. No slow thumbnail generation through a web application.
+To generate scaled-down versions of images for fullscreen display and thumbnails, you are advised to use a fast, third-party tool such as ImageMagick.
 
 ## Installation
 Clone this repository. Then:
@@ -57,6 +58,12 @@ To enable google analytics for your new gallery, put your Google Analytics code 
     # Enable Google Analytics
     GA.tracker = "<your GA Code here>"
 ```
+## Thumbnail Management
+To generate thumbnails, you can use script/genthumbs
+```sh
+    script/genthumbs <photo dir> <output dir> <thumb size>
+```
+<thumb size> must be a imagemagick compatible size specification, e.g. "x150"
 
 
 ## License
