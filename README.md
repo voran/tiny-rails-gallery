@@ -1,6 +1,7 @@
 # Tiny Rails Gallery
 
 [![Code Climate](https://codeclimate.com/github/voran/tiny-rails-gallery.png)](https://codeclimate.com/github/voran/tiny-rails-gallery)
+[![Build Status](https://travis-ci.org/voran/tiny-rails-gallery.png?branch=master)](https://travis-ci.org/voran/tiny-rails-gallery)
 
 - [Description](#description)
 - [Installation](#installation)
