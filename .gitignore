@@ -17,3 +17,7 @@
 # Ignore Photos and Thumbs
 public/photos
 public/thumbnails
+
+
+# Ignore Eclipse Project File
+/.project
