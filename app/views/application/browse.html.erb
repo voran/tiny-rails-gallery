@@ -12,7 +12,7 @@
   <div class="col-md-2 text-center padded">
       <a class="break-word" href="<%= u subdir %>/">
         <p class="folder-container">
-          <img class="img-responsive" src="<%= random_cover(@entry + '/' + subdir) || Config.no_cover_image %>" alt="folder icon"/>
+          <img class="img-responsive" src="<%= random_cover(@entry + '/' + subdir) || Rails.configuration.no_cover_image %>" alt="folder icon"/>
         </p>
         <%= subdir.gsub('_',' ') %>
       </a>
