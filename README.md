@@ -1,6 +1,7 @@
 # Tiny Rails Gallery
 
 [![Code Climate](https://codeclimate.com/github/voran/tiny-rails-gallery.png)](https://codeclimate.com/github/voran/tiny-rails-gallery)
+[![Build Status](https://travis-ci.org/voran/tiny-rails-gallery.png?branch=master)](https://travis-ci.org/voran/tiny-rails-gallery)
 
 - [Description](#description)
 - [Installation](#installation)
@@ -35,14 +36,19 @@ You can set title and meta tags using the following entries:
 ```
 
 ### Content
-Pictures and thumbnails need to be in folders accessible under public/. You can also set up symlinks that point to folders outside the web application.
+Pictures and thumbnails need to be in folders accessible under public/. You can also set up symlinks that point to folders outside the web application. Set these entries
 ```rb
     config.photos_url = "/photos/"
     config.thumbnails_url = "/thumbnails/"
 ```
- to the folders (or symlinks) where your content is.
+ to point to the folders (or symlinks) relative to pubic/ where your content is stored.
  
- Tiny Rails Gallery walks the thumbnails folder and picks a random image to use as thumbnail for each folder. If no images are found in a folder and its
+Tiny Rails Gallery walks the thumbnails folder and picks a random image to use as thumbnail for each folder. If no images are found in a folder and its subfolders, a "no preview" image is shown. You can configure the location of the "no preview" image using the following config:
+ 
+```rb
+    # No cover image location (relative to public/ folder)
+    config.no_cover_image = "/img/no-cover-image.jpg"
+```
 
 
 Also, You can whitelist file types and blacklist directories using the following entries:
