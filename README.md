@@ -43,7 +43,12 @@ Pictures and thumbnails need to be in folders accessible under public/. You can 
 ```
  to the folders (or symlinks) where your content is.
  
- Tiny Rails Gallery walks the thumbnails folder and picks a random image to use as thumbnail for each folder. If no images are found in a folder and its
+Tiny Rails Gallery walks the thumbnails folder and picks a random image to use as thumbnail for each folder. If no images are found in a folder and its subfolders, a "no preview" image is shown. You can configure the location of the "no preview" image using the following config:
+ 
+```rb
+    # No cover image location (relative to public/ folder)
+    config.no_cover_image = "/img/no-cover-image.jpg"
+```
 
 
 Also, You can whitelist file types and blacklist directories using the following entries:
