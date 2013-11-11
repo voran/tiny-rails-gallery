@@ -1,13 +1,13 @@
 module ApplicationHelper
   
   def urlencode(entry)
-    entry_urlencoded = ""
+    entry_urlencoded = Array.new
     if !entry.nil?
       entry.split('/').each do | url_chunk |
-        entry_urlencoded += URI::encode(url_chunk) + '/'
+        entry_urlencoded.push(URI::encode(url_chunk))
       end
     end
-    return entry_urlencoded
+    return entry_urlencoded.join('/')
   end
    
    def random_cover(dir)
