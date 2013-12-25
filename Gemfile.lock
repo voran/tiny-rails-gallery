@@ -101,7 +101,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass-rails
+  bootstrap-sass-rails (>= 3.0.3.0)
   coffee-rails (~> 4.0.1)
   google-analytics-rails
   jquery-rails

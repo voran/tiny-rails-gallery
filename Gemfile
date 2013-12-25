@@ -19,7 +19,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'bootstrap-sass-rails'
+gem 'bootstrap-sass-rails', '>= 3.0.3.0'
 
 gem 'google-analytics-rails'
 
