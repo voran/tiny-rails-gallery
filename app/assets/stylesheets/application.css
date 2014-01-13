@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require twitter/bootstrap
+ *= require blueimp-gallery-all
  *= require_tree .
  */
 
