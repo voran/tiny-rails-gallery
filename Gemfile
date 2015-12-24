@@ -25,7 +25,6 @@ gem 'google-analytics-rails'
 
 gem 'blueimp-gallery'
 
-gem 'thin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -34,7 +33,7 @@ gem 'thin'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn', '~> 5.0'
 
 # Deploy with Capistrano
 # gem 'capistrano'
